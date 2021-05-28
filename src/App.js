@@ -10,12 +10,13 @@ export default function App() {
     const fetchData = useCallback(() => {
         axios({
             method: 'GET',
-            url: 'https://livescore6.p.rapidapi.com/news/list',
-            params: {category: 'soccer'},
-            headers: {
-                'x-rapidapi-key': '457a49cbd2msh587809b267ee184p1965ffjsn4b06828b27cb',
-                'x-rapidapi-host': 'livescore6.p.rapidapi.com'
-            }
+            url: 'https://api.chucknorris.io/jokes/random',
+            //           url: 'https://api-football-beta.p.rapidapi.com/countries',
+            //            params: {name: 'Estonia'},
+            //            headers: {
+            //                'x-rapidapi-key': '457a49cbd2msh587809b267ee184p1965ffjsn4b06828b27cb',
+            //                'x-rapidapi-host': 'api-football-beta.p.rapidapi.com'
+            //                     }
         })
             .then((response) => {
                 setResponseData(response.data)
@@ -40,7 +41,7 @@ export default function App() {
             </header>
             <pre>
         <code>
-          {responseData && JSON.stringify(responseData, null, 4)}
+          {responseData && JSON.stringify(responseData.value, null, 4)}
         </code>
       </pre>
             <footer>
